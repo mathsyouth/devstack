@@ -1,10 +1,8 @@
 # devstack
-=========
 Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer
 The main reference: http://docs.openstack.org/developer/devstack/
 
 ## Install
------------
 1. Install Ubuntu 14.04 (Trusty)
 2. Add stack user and give the user sudo privileges
   adduser stack
@@ -24,7 +22,6 @@ The main reference: http://docs.openstack.org/developer/devstack/
   ./devstack/exercise.sh
 
 ## Example
------------
 [Main reference: HOT guide](http://docs.openstack.org/developer/heat/template_guide/hot_guide.html)<br>
 1. The following example is a simple Heat template to deploy a single virtual system that is based on the cirros-0.3.4-x86_64-uec image:<br>
 
