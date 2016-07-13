@@ -1,6 +1,5 @@
 # devstack
-Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer
-The main reference: http://docs.openstack.org/developer/devstack/
+Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer (see [devstack developer guide](http://docs.openstack.org/developer/devstack/))
 
 ## Install
 1. Install Ubuntu 14.04 (Trusty)
@@ -22,14 +21,16 @@ The main reference: http://docs.openstack.org/developer/devstack/
   ./devstack/exercise.sh
 
 ## Example
-1. The following example is a simple Heat template to deploy a single virtual system that is based on the cirros-0.3.4-x86_64-uec image:
-heat_template_version: 2016-07-08
+[Main reference: HOT guide](http://docs.openstack.org/developer/heat/template_guide/hot_guide.html)<br>
+1. The following example is a simple Heat template to deploy a single virtual system that is based on the cirros-0.3.4-x86_64-uec image:<br>
 
-description: Simple template to deploy a single compute instance
+    heat_template_version: 2015-04-30 
 
-resources:
- my_instance:
-   type: OS::Nova::Server
-   properties:
-     image: cirros-0.3.4-x86_64-uec
-     flavor: m1.tiny
+    description: Simple template to deploy a single compute instance
+
+    resources:
+    my_instance:
+      type: OS::Nova::Server
+      properties:
+        image: cirros-0.3.4-x86_64-uec
+        flavor: m1.small
