@@ -1,6 +1,5 @@
 # devstack
-Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer
-The main reference: http://docs.openstack.org/developer/devstack/
+Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer (see [devstack developer guide](http://docs.openstack.org/developer/devstack/))
 
 ## Install
 1. Install Ubuntu 14.04 (Trusty)
