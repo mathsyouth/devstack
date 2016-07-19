@@ -29,8 +29,8 @@ Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cin
     description: Simple template to deploy a single compute instance
 
     resources:
-    my_instance:
-      type: OS::Nova::Server
-      properties:
-        image: cirros-0.3.4-x86_64-uec
-        flavor: m1.small
+      my_instance:
+        type: OS::Nova::Server
+        properties:
+          image: cirros-0.3.4-x86_64-uec
+          flavor: m1.small
