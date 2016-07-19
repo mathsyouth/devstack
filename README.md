@@ -20,8 +20,9 @@ Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cin
 8. Run test examples
   ./devstack/exercise.sh
 
-## Example
+## Example 
 [Main reference: HOT guide](http://docs.openstack.org/developer/heat/template_guide/hot_guide.html)<br>
+
 1. The following example is a simple Heat template to deploy a single virtual system that is based on the cirros-0.3.4-x86_64-uec image:<br>
 
   ```yaml
@@ -37,7 +38,7 @@ Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cin
         flavor: m1.small
   ```
 2. The following example is a simple Heat template to deploy a stack with two vm instances, by using parameters:<br>
-
+ 
 	```yaml
 	heat_template_version: 2015-04-30 
 
@@ -75,4 +76,3 @@ Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cin
         networks:
           - network : { get_param : network_id }
   ```
-3. The following example is a simple Heat template to set the admin password for a virtual machine by using the user_data section:
