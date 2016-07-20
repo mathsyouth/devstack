@@ -4,20 +4,20 @@ Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cin
 ## Install
 1. Install Ubuntu 14.04 (Trusty)
 2. Add stack user and give the user sudo privileges
-  adduser stack
-  apt-get install sudo -y
-  echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+  * adduser stack
+  * apt-get install sudo -y
+  * echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 3. Logout and login as that user
 4. Download devstack liberty
-  sudo apt-get install git -y
-  git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty
-  cd devstack
+  * sudo apt-get install git -y
+  * git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty
+  * cd devstack
 5. Create local.conf in devstack directory (see the local.conf file)
-6. Run devstack
+6. Run devstack <br>
   ./stack.sh
-7. Access the dashboard
-  http://172.20.8.124/dashboard/
-8. Run test examples
+7. Access the dashboard <br>
+  http://localhost/dashboard/
+8. Run test examples <br>
   ./devstack/exercise.sh
 
 ## Example 
