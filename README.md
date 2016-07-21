@@ -23,7 +23,7 @@ Use Devstack to install OpenStack with Neutron, Heat, Cinder, Swift and Ceilomet
   * sudo apt-get install git -y
   * git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty  (*or stable/mitaka*)
   * cd devstack
-5. Create local.conf in devstack directory (see the liberty/local.conf or mitaka/local.conf file). **Note: If you download devstack liberty, then choose liberty/local.conf file in order to guarantee that devstack could install the stable OpenStack Liberty. The same for OpenStack Mitaka release.**
+5. Create local.conf in devstack directory (see the liberty/local.conf or mitaka/local.conf file). **Note: If you download devstack liberty, then choose liberty/local.conf file in order to guarantee that devstack could install the stable OpenStack Liberty. The same for OpenStack Mitaka release. If [the issue](https://bugs.launchpad.net/devstack/+bug/1515352?comments=all) happens, just delete the file _~/.config/openstack/clouds.yaml_.**
 6. Run devstack <br>
   ./stack.sh
 7. Access the dashboard <br>
