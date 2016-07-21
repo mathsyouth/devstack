@@ -1,5 +1,5 @@
 # devstack
-Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer (see [devstack developer guide](http://docs.openstack.org/developer/devstack/))
+Use Devstack to install OpenStack with Neutron, Heat, Cinder, Swift and Ceilometer (see [devstack developer guide](http://docs.openstack.org/developer/devstack/))
 
 ## What devstack does
 **Warning: devstack will massively modify your OS. Don't run on a laptop.**
@@ -19,11 +19,11 @@ Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cin
   * apt-get install sudo -y
   * echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 3. Logout and login as that user
-4. Download devstack liberty
+4. Download devstack liberty (*or mitaka*)
   * sudo apt-get install git -y
-  * git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty
+  * git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty  (*or stable/mitaka*)
   * cd devstack
-5. Create local.conf in devstack directory (see the local.conf file)
+5. Create local.conf in devstack directory (see the liberty/local.conf or mitaka/local.conf file). **Note: If you download devstack liberty, then choose liberty/local.conf file in order to guarantee that devstack could install the stable OpenStack Liberty. The same for OpenStack Mitaka release.**
 6. Run devstack <br>
   ./stack.sh
 7. Access the dashboard <br>
