@@ -1,6 +1,17 @@
 # devstack
 Use Devstack Liberty to install stable OpenStack Liberty with Neutron, Heat, Cinder, Swift and Ceilometer (see [devstack developer guide](http://docs.openstack.org/developer/devstack/))
 
+## What devstack does
+**Warning: devstack will massively modify your OS. Don't run on a laptop.**
+* Installing all prerequirement software via **packages** or **pip**
+* Installing all OpenStack software via **git** to a specified master
+* Configuring and installing working **database schema**
+* Configuring hypervior, storage backends, networks
+* Creating **service ids** and **service catalog** entries to connect all components
+* Starting all OpenStack services under **screen**
+* Creating Apache configuration for web dashboard available at 127.0.0.1
+* Creats working **Tempest** config in /opt/stack/tempest
+
 ## Install
 1. Install Ubuntu 14.04 (Trusty)
 2. Add stack user and give the user sudo privileges
