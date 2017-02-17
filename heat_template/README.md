@@ -49,4 +49,15 @@
    ```shell
    ssh -i Ubuntu.pem ubuntu@192.168.114.196
    ```
+1. Make VM access to the Internet <br>
+
+   ```shell
+   sudo vim /etc/resolv.conf
+   ```
+   and modify the nameserver line as `nameserver 8.8.8.8`. Then <br>
+ 
+   ```shell
+   ping google.com
+   ping baidu.com
+   ```
    
