@@ -1,4 +1,16 @@
-# Images in Glance
+# Cloud images in Glance
+
+Cloud images have no password. It's reccomended to login to the instance through SSH (--key-name). Otherwise, it's possible to inject a cloud-config metadata file through the nova switch `--user-data ./my_file`, in order to set a password. `my_file` would look like (note that the first line is not a comment, but it's required!).
+
+```
+#cloud-config 
+password: centos 
+chpasswd: { expire: False }
+```
+
+Here some cloud-config examples: 
+http://cloudinit.readthedocs.org/en/latest/topics/examples.html
+
 
 ## Ubuntu 14.04
 
@@ -60,4 +72,18 @@
    ping google.com
    ping baidu.com
    ```
-   
+
+
+## CentOS-7
+
+1. Download the image <br>
+
+   ```shell
+   wget https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-1503.qcow2
+   ```
+1. Put the Image in Glance <br>
+
+   ```shell
+   glance image-create --name 'CentOS-7-1503' --visibility public --disk-format=qcow2 \
+                        --container-format=bare --file=CentOS-7-x86_64-GenericCloud-1503.qcow2
+   ```
