@@ -59,6 +59,7 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
    on Ubuntu the username is simply 'ubuntu'): <br>
    
    ```shell
+   chmod 400 Ubuntu.pem
    ssh -i Ubuntu.pem ubuntu@192.168.114.196
    ```
 1. Make VM access to the Internet <br>
