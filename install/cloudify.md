@@ -47,7 +47,7 @@ cfy: error: too few arguments
 ```
 
 
-### Deploy cloudify management server :
+### Deploy cloudify management server
 
 For more explanation, [see](http://getcloudify.org/guide/3./getting-started-bootstrapping.html) the cloudify
 bootstrap documentation !
@@ -56,6 +56,7 @@ Log into the host where you installed the **Cloudify CLI** and enter in the virt
 
 Prepare your directory :
 ```
+cd cloudify
 mkdir -p cloudify-manager
 cd cloudify-manager
 ```
@@ -90,11 +91,11 @@ keystone_username: 'admin'
 keystone_password: 'console'
 keystone_tenant_name: 'admin'
 keystone_url: 'http://192.168.114.222:35357/v2.0'
-region: 'RegionOne'          # OpenStack region : look openrc file
+region: 'RegionOne'          # OpenStack region : look openrc file or by keystone endpoint-list
 manager_public_key_name: 'manager-kp'
 agent_public_key_name: 'agent-kp'
-image_id: '019946ab-ad4b-42d6-9605-63e067b8c8dc'
-flavor_id: '3'              
+image_id: '1e27caeb-bf6e-4446-a956-eb695598b59b' # CentOS 7 image ID
+flavor_id: '3'                          # m1.medium
 external_network_name: 'ext-net'        # external network on Openstack
 
 rabbitmq_username: 'admin'
@@ -108,16 +109,17 @@ ssh_user: 'centos'              # SSH user used to connect to the manager
 agents_user: 'centos'           # SSH user used to connect to agent VM
 ```
 
-Launch the deployment of cloudify manager server : 
+Launch the deployment of cloudify manager server :
 ```
  cfy bootstrap --install-plugins -p openstack-manager-blueprint.yaml -i inputs.yaml
 ```
 
 During the deployment many **logs** appears on console :
 ```
-2015-08-31 14:57:15 CFY <manager> [agents_security_group_d4d74.create] Task succeeded 'neutron_plugin.security_group.create'
-2015-08-31 14:57:15 CFY <manager> [agent_keypair_a8933] Configuring node
-2015-08-31 14:57:15 CFY <manager> [router_c3be5] Configuring node
+2017-02-21 06:04:11 CFY <manager> [sanity_05f81] Finished operation cloudify.interfaces.lifecycle.start
+2017-02-21 06:04:11 CFY <manager> 'execute_operation' workflow execution succeeded
+Bootstrap complete
+Manager is up at 192.XXX.XXX.XXX
 ```
 Check the proper functioning of the server :
 ```
@@ -125,21 +127,23 @@ cfy status
 ```
 If this result appears on console, your cloudify manager is installed  and operating
 ```
-Getting management services status... [ip=84.**.**.**]
+Retrieving manager services status... [ip=192.XXX.XXX.XXX]
 
 Services:
-+--------------------------------+--------+
-|            service             | status |
-+--------------------------------+--------+
-| Riemann                        |   up   |
-| Celery Management              |   up   |
-| Manager Rest-Service           |   up   |
-| AMQP InfluxDB                  |   up   |
-| RabbitMQ                       |   up   |
-| Elasticsearch                  |   up   |
-| Webserver                      |   up   |
-| Logstash                       |   up   |
-+--------------------------------+--------+
++--------------------------------+---------+
+|            service             |  status |
++--------------------------------+---------+
+| InfluxDB                       | running |
+| Celery Management              | running |
+| Logstash                       | running |
+| RabbitMQ                       | running |
+| AMQP InfluxDB                  | running |
+| Manager Rest-Service           | running |
+| Cloudify UI                    | running |
+| Webserver                      | running |
+| Riemann                        | running |
+| Elasticsearch                  | running |
++--------------------------------+---------+
 ```
 
 
@@ -157,7 +161,12 @@ sudo yum install gcc
 On the controll node, [modify the default quota per tenant](http://www.sebastien-han.fr/blog/2012/09/19/openstack-play-with-quota/),
 
 ```
-sudo nova-manage project quota --project=5172f50226f647ebb03ca4e4e82d056d --key=instances --value=100
+keystone tenant-list
+sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328
+sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328 --key=instances --value=50
+sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328 --key=floating_ips --value=50
+sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328 --key=cores --value=50
+sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328 --key=security_groups --value=50
 ```
 
 because clearwater needs more than 10 VMs.
