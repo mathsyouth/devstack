@@ -29,9 +29,9 @@ virtualenv cloudify
 source cloudify/bin/activate
 cd cloudify
 ```
-Install cloudify CLI version 3.4 with the PIP command : 
+Install cloudify CLI version 3.4.1 with the PIP command : 
 ```
-pip install cloudify==3.4
+pip install cloudify==3.4.1
 ```
 
 Test if the command cfy exists 
@@ -60,9 +60,9 @@ mkdir -p cloudify-manager
 cd cloudify-manager
 ```
 
-Download manager blueprint version 3.4 :
+Download manager blueprint version 3.4.0.2-telco:
 ```
-git clone -b 3.4-build https://github.com/cloudify-cosmo/cloudify-manager-blueprints.git
+git clone -b 3.4.0.2-telco https://github.com/cloudify-cosmo/cloudify-manager-blueprints.git
 ```
 
 Prepare deployment on OpenStack platform :
