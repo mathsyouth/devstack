@@ -49,8 +49,7 @@ cfy: error: too few arguments
 
 ### Deploy cloudify management server
 
-For more explanation, [see](http://getcloudify.org/guide/3./getting-started-bootstrapping.html) the cloudify
-bootstrap documentation !
+For more explanation, [see](http://docs.getcloudify.org/3.4.0/manager/bootstrapping/) the cloudify bootstrap documentation !
 
 Log into the host where you installed the **Cloudify CLI** and enter in the virtual environment with source command.
 
