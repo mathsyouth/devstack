@@ -54,7 +54,7 @@ image_id: '95d2d716-59b7-4a1a-a27e-fdc5ad3e248a'
 flavor_id: '2'
 agent_user: 'ubuntu'
 external_network_name: 'ext-net'
-public_domain: ''
+public_domain: 'default'
 ```
 
 Once the completed input file, we must **create** the deployment on orchestrator :
@@ -64,7 +64,7 @@ cfy deployments create -b clearwater -d clearwater-test --inputs inputs/inputs.y
 
 Then, you have to **launch** clearwater deployment :
 ```
-cfy executions start -w install -d clearwater-test
+cfy executions start -w install -d clearwater-test --timeout=3600
 ```
 
 During the deployment many **logs** appears on console :
