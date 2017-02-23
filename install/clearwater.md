@@ -38,8 +38,6 @@ cfy blueprints upload -b clearwater -p openstack-blueprint.yaml
 By default 2 sprout node and 1 node of each other type will be deployed. If you want change it, you can edit deploy: instance on blueprint definition or scale your deployment after launch... 
 
 
-
-
 Before launch the **deployment**, it must be created in cloudify.
 
 For that, must be specified the deployment **inputs parameters**.
@@ -71,11 +69,17 @@ If this result appears on console, your clearwater is installed and operating:
 ```
 2017-02-23T02:55:29 CFY <clearwater-test> 'install' workflow execution succeeded
 Finished executing workflow install on deployment clearwater-test
-* Run 'cfy events list --include-logs --execution-id 0cee8d5c-179c-4239-8759-0b025a922c3f' to retrieve the execution's events/logs
+* Run 'cfy events list --include-logs --execution-id 0cee8d5c-179c-4239-8759-0b025a922c3f'
+to retrieve the execution's events/logs
 ```
 
-Once the deployment successfully finish, you can create new numbers on ellis website and then register a sip phone (softphone..) 
-You can help you with this [clearwater documentation page](https://clearwater.readthedocs.org/en/latest/Making_your_first_call/index.html) (by default the signup_code  is "secret").
+Once the deployment is successfully finished, you can create new numbers on the ellis website 
+
+![ellis website](Screenshot from 2017-02-23 20:22:28.png) 
+
+and then register a sip phone (softphone). You can help you with this [clearwater documentation page](https://clearwater.readthedocs.org/en/latest/Making_your_first_call/index.html) . In the ellis sign-up page, by default the signup-code is "secret".
+
+![sign-up](Screenshot_from_2017-02-23_20:33:38.png)
 
 But to register your softphone, you must use dns of the deployment with his public ip. Or declare the bonos publics IP on your own DNS server. Only bono ip because the private domain fact load-balancing between clearwater VMs.
 
