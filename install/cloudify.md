@@ -104,6 +104,8 @@ server can be bootstrapped on either CentOS 7.x or RHEL 7.x. Here I use the imag
 keystone_username: 'admin'
 keystone_password: 'console'
 keystone_tenant_name: 'admin'
+# Run the command: openstack endpoint show keystone
+# Choose the publicurl
 keystone_url: 'http://192.168.114.222:35357/v2.0'
 region: 'RegionOne'          # OpenStack region : look openrc file or by keystone endpoint-list
 manager_public_key_name: 'manager-kp'
