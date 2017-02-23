@@ -5,7 +5,6 @@
 # nova keypair-delete manager-kp
 
 set -x
-set -e
 
 instances=`nova list | grep 'server_clearwater-test_' | awk '{print $4}'`
 for instance in $instances
@@ -23,5 +22,4 @@ done
 neutron security-group-list
 nova list
 
-set +e
 set +x
