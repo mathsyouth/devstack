@@ -66,17 +66,16 @@ Then, you have to **launch** clearwater deployment :
 ```
 cfy executions start -w install -d clearwater-test --timeout=3600
 ```
+If this result appears on console, your clearwater is installed and operating:
 
-During the deployment many **logs** appears on console :
 ```
-2015-08-27T14:41:03 CFY <clearwater-57> [sprout_host_c68cc.install] Sending task 'diamond_agent.tasks.install'
-2015-08-27T14:41:04 CFY <clearwater-57> [sprout_host_c68cc.install] Task started 'diamond_agent.tasks.install'
-2015-08-27T14:41:04 CFY <clearwater-57> [bind_296de.configure] Task succeeded 'script_runner.tasks.run'
+2017-02-23T02:55:29 CFY <clearwater-test> 'install' workflow execution succeeded
+Finished executing workflow install on deployment clearwater-test
+* Run 'cfy events list --include-logs --execution-id 0cee8d5c-179c-4239-8759-0b025a922c3f' to retrieve the execution's events/logs
 ```
-
 
 Once the deployment successfully finish, you can create new numbers on ellis website and then register a sip phone (softphone..) 
-You can help you with this [clearwater documentation page](https://clearwater.readthedocs.org/en/latest/Making_your_first_call/index.html) (by default the secret_key is "secret").
+You can help you with this [clearwater documentation page](https://clearwater.readthedocs.org/en/latest/Making_your_first_call/index.html) (by default the signup_code  is "secret").
 
 But to register your softphone, you must use dns of the deployment with his public ip. Or declare the bonos publics IP on your own DNS server. Only bono ip because the private domain fact load-balancing between clearwater VMs.
 
