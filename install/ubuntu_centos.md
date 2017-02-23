@@ -12,7 +12,7 @@ Here some cloud-config examples:
 http://cloudinit.readthedocs.org/en/latest/topics/examples.html
 
 
-## Ubuntu 14.04
+## [Ubuntu 14.04](https://cloud-images.ubuntu.com/trusty/current/)
 
 1. Download the image <br>
 
@@ -75,7 +75,7 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
    ```
 
 
-## CentOS-7
+## [CentOS-7](https://cloud.centos.org/centos/7/images/)
 
 1. Download the image <br>
 
