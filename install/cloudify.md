@@ -40,10 +40,13 @@ cfy
 ```
 If this result appears on console, follow the next part (Deploy cloudify management server)
 ```
-usage: cfy [-h] [--version]
-           {status,use,executions,ssh,workflows,recover,blueprints,teardown,bootstrap,dev,deployments,init,local,events}
-           ...
-cfy: error: too few arguments
+usage: cfy [-h] [--version]  ...
+
+Cloudify's Command Line Interface
+
+optional arguments:
+  -h, --help        show this help message and exit
+  --version         show version information and exit
 ```
 
 
@@ -115,7 +118,6 @@ Launch the deployment of cloudify manager server :
 
 During the deployment many **logs** appears on console :
 ```
-2017-02-21 06:04:11 CFY <manager> [sanity_05f81] Finished operation cloudify.interfaces.lifecycle.start
 2017-02-21 06:04:11 CFY <manager> 'execute_operation' workflow execution succeeded
 Bootstrap complete
 Manager is up at 192.XXX.XXX.XXX
@@ -160,7 +162,7 @@ sudo yum install gcc
 On the controll node, [modify the default quota per tenant](http://www.sebastien-han.fr/blog/2012/09/19/openstack-play-with-quota/),
 
 ```
-keystone tenant-list
+openstack project list
 sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328
 sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328 --key=instances --value=50
 sudo nova-manage project quota --project=1359c571540449268c8b5e789b7ec328 --key=floating_ips --value=50
