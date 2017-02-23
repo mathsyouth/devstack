@@ -69,10 +69,21 @@ git clone -b 3.4.0.2-telco https://github.com/cloudify-cosmo/cloudify-manager-bl
 ```
 
 Prepare deployment on OpenStack platform :
+
 ```
 cfy init
 cd cloudify-manager-blueprints/
+vim openstack-manager-blueprint.yaml
 ```
+
+Replace the default `cidr: 172.16.0.0/16` of `management_subnet` in `openstack-manager-blueprint.yaml` with
+
+```
+cidr: 13.1.1.0/24
+```
+
+**Note: the default `cidr` conflicts with my local envorienment**.
+
 Install required packages for deployment :
 ```
 cfy local create-requirements -o requirements.txt -p openstack-manager-blueprint.yaml
@@ -86,7 +97,8 @@ cp openstack-manager-blueprint-inputs.yaml inputs.yaml
 vim inputs.yaml
 ```
 
-Bellow an example of inputs.yaml file configurations for OpenStack Mitaka.
+Bellow an example of inputs.yaml file configurations for OpenStack Mitaka. Cloudify manager
+server can be bootstrapped on either CentOS 7.x or RHEL 7.x. Here I use the image [CentOS-7-x86_64-GenericCloud.qcow2](https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2).
 
 ```yaml
 keystone_username: 'admin'
