@@ -7,7 +7,6 @@
 
 # Run this script in a controller node.
 set -x
-set -e
 demo_number=1
 
 # source the admin credentials to gain access to admin-only CLI commands:
@@ -86,7 +85,6 @@ do
 done
 
 set +x
-set +e
 
 # List the instance
 nova list

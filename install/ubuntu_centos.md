@@ -3,12 +3,12 @@
 Cloud images have no password. It's reccomended to login to the instance through SSH (--key-name). Otherwise, it's possible to inject a cloud-config metadata file through the nova switch `--user-data ./my_file`, in order to set a password. `my_file` would look like (note that the first line is not a comment, but it's required!).
 
 ```
-#cloud-config 
-password: centos 
+#cloud-config
+password: centos
 chpasswd: { expire: False }
 ```
 
-Here some cloud-config examples: 
+Here some cloud-config examples:
 http://cloudinit.readthedocs.org/en/latest/topics/examples.html
 
 
@@ -31,7 +31,7 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
    nova keypair-add Ubuntu > Ubuntu.pem
    ```
    Or, if you have access to the Ubuntu repository you may import the Ubuntu key <br>
-   
+
    ```shell
    nova keypair-add --pub_key ubuntu_rsa.pub Ubuntu
    ```
@@ -41,7 +41,7 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
    NET_ID=`neutron net-list | grep 'demo-net ' | awk '{print $2}'`
    ```
    **Note: If we replace 'demo-net' with 'ext-net', the newly created VM is not easily accessed.** <br>
-   
+
    ```shell
    nova boot --image 'Ubuntu-14.04' --flavor m1.small --nic net-id=$NET_ID \
               --key-name=Ubuntu 'Ubuntu'
@@ -55,9 +55,9 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
                 | grep floating_ip_address | awk '{print $4}')
    nova floating-ip-associate "Ubuntu" $floating_ip
    ```
-1. Start a SSH connection with a command like the one below (default username depends on the image, 
+1. Start a SSH connection with a command like the one below (default username depends on the image,
    on Ubuntu the username is simply 'ubuntu'): <br>
-   
+
    ```shell
    chmod 400 Ubuntu.pem
    ssh -i Ubuntu.pem ubuntu@192.168.114.196
@@ -68,7 +68,7 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
    sudo vim /etc/resolv.conf
    ```
    and modify the nameserver line as `nameserver 8.8.8.8`. Then <br>
- 
+
    ```shell
    ping google.com
    ping baidu.com
