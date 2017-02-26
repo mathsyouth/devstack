@@ -2,13 +2,16 @@
 
 ## Clearwater vIMS deployment on OpenStack Mitaka
 
-To deploy the Clearwater vIMS, you must have previously installed the **Cloudify** orchestrator on OpenStack (see [this doc](opnfv-cloudify-clearwater/cloudify.md)).
+To deploy the Clearwater vIMS, you must have previously installed the **Cloudify** orchestrator on OpenStack (see [this doc](../opnfv-cloudify-clearwater/cloudify.md)).
 
 
 ### Upload Clearwater blueprint
 
-Log into `cloudify-cli` (the host where you installed the Cloudify CLI) and enter in the virtual environment with source command.
+1. Log into `cloudify-cli` (the host where you installed the Cloudify CLI) and enter in the virtual environment with source command <br>
 
+   ```shell
+   source  cloudify/bin/activate
+   ```
 1. Download blueprint using git <br>
 
    ```shell
