@@ -33,7 +33,10 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
    Or, if you have access to the Ubuntu repository you may import the Ubuntu key <br>
 
    ```shell
-   nova keypair-add --pub_key ubuntu_rsa.pub Ubuntu
+   ssh-keygen -q -t rsa -f /home/ubuntu/.ssh/id_rsa -N ""
+   # The following two commands work. Just choose one.
+   openstack keypair create --public-key /home/ubuntu/.ssh/id_rsa.pub Ubuntu
+   nova keypair-add --pub-key /home/ubuntu/.ssh/id_rsa.pub Ubuntu
    ```
 1. Create the Ubuntu VM <br>
 
@@ -55,9 +58,12 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
                 | grep floating_ip_address | awk '{print $4}')
    nova floating-ip-associate "Ubuntu" $floating_ip
    ```
-1. Start a SSH connection with a command like the one below (default username depends on the image,
-   on Ubuntu the username is simply 'ubuntu'): <br>
+1. Start a SSH connection with a command like the one below (default username  depends on the image, on Ubuntu the username is simply 'ubuntu'): <br>
 
+   ```shell
+   ssh ubuntu@192.168.114.196
+   ```
+   If `Ubuntu.pem` is created in the above, then
    ```shell
    chmod 400 Ubuntu.pem
    ssh -i Ubuntu.pem ubuntu@192.168.114.196
