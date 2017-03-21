@@ -25,31 +25,27 @@ Use DevStack to install OpenStack with Neutron, Heat, Cinder, Swift and Ceilomet
    apt-get install sudo -y
    echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
    ```
-   
 1. Logout and login as that user
-1. Download devstack liberty (*or mitaka*)<br>
+1. Download devstack liberty (*or mitaka*) <br>
   
-  ```
-  sudo apt-get install git -y
-  git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty  (*or stable/mitaka*)
-  cd devstack
-  ```
-  
+   ```
+   sudo apt-get install git -y
+   git clone https://git.openstack.org/openstack-dev/devstack -b stable/liberty  (*or stable/mitaka*)
+   cd devstack
+   ```
 1. Create *local.conf* in devstack directory (see the *liberty/local.conf* or *mitaka/local.conf* file). **Note: If you download devstack liberty, then choose liberty/local.conf file in order to guarantee that devstack could install the stable OpenStack Liberty. The same for OpenStack Mitaka release. If [the issue](https://bugs.launchpad.net/devstack/+bug/1515352?comments=all) happens, just delete the file _~/.config/openstack/clouds.yaml_.**
 1. Run devstack <br>
 
-  ```
-  ./stack.sh
-  ```
-  
+   ```
+   ./stack.sh
+   ```
 1. Access the dashboard <br>
   http://localhost/dashboard/
 1. Run test examples <br>
   
-  ```
-  ./devstack/exercise.sh
-  ```
-  
+   ```
+   ./devstack/exercise.sh
+   ```
 1. `source openrc` in your shell, and then use the **openstack** command line tool to manage your devstack
 1. `cd /opt/stack/tempest` and run tempest tests that have been configured to work with your devstack.
 1. [Make code changes to OpenStack and validate them](http://docs.openstack.org/developer/devstack/development.html)
