@@ -20,8 +20,7 @@ Log into `cloudify-cli` (the host where you installed the Cloudify CLI) and ente
 
    ```shell
    cd ~/cloudify/cloudify-manager/
-   mkdir blueprints
-   cd blueprints
+   mkdir blueprints && cd blueprints
    git clone -b 3.4-build https://github.com/Orange-OpenSource/opnfv-cloudify-clearwater.git
    ```
 1. Upload blueprint on the Cloudify orchestrator <br>
@@ -47,11 +46,11 @@ By default, 2 sprout node and 1 node of each other type will be deployed. If you
    Bellow is an example of `input.yaml` file configurations for my Openstack Mitaka platform <br>
 
    ```
-   image_id: '4806095a-0120-428a-ab7f-98c16ad30678'
-   flavor_id: '2'
-   agent_user: 'ubuntu'
-   external_network_name: 'ext-net'
-   public_domain: 'default'
+   image_id: '421bb8af-b8ba-46d9-a6f6-2ae4b826fe4c'  # OS image ID (Ubuntu 14.04)
+   flavor_id: '2'                                    # Flavor ID (~ 2 Go RAM)
+   agent_user: 'ubuntu'                              # By default is ubuntu for ubuntu image
+   external_network_name: 'ext-net'                  # external network on Openstack
+   public_domain: 'clearwater.pub'                   # SIP domain name
    ```
    You can also pass the parameters from the Cloud Manager Server GUI—Create Deployment using Blueprints.
 1. Once the input file is completed, you must create the deployment on orchestrator <br>
@@ -59,12 +58,12 @@ By default, 2 sprout node and 1 node of each other type will be deployed. If you
    ```
    cfy deployments create -b clearwater -d clearwater-test --inputs inputs/inputs.yaml
    ```
-1. Launch Clearwater deployment <br>
+1. Launch Clearwater deployment
 
    ```
    cfy executions start -w install -d clearwater-test --timeout=3600
    ```
-   If this result appears on console, installaton of your Clearwater is finished <br>
+   If this result appears on console, installaton of your Clearwater is finished
 
    ```
    2017-02-23T02:55:29 CFY <clearwater-test> 'install' workflow execution succeeded
