@@ -17,18 +17,16 @@ Cloudify CLI can be used to create Cloudify Manager Server on OpenStack platform
 The following steps will guide you for installation of Cloudify CLI:
 
 1. Create Cloudify CLI VM (Ubuntu **14.04** image) named `cloudify-cli`.
-1. Log into `cloudify-cli` and then install python packages <br>
+1. Log into `cloudify-cli` and then install python packages
 
    ```shell
    sudo apt-get update
    sudo apt-get install git python-pip python-dev python-virtualenv -y
    ```
-1. Create virtual environment <br>
+1. Create virtual environment
 
    ```shell
-   virtualenv cloudify
-   source cloudify/bin/activate
-   cd cloudify
+   virtualenv cloudify && source cloudify/bin/activate && cd cloudify
    ```
 1. Install Cloudify CLI version 3.4.1 with the PIP command <br>
 
@@ -55,7 +53,7 @@ The following steps will guide you for installation of Cloudify CLI:
 
 ### Deploy Cloudify Management Server
 
-For more explanation, [see](http://docs.getcloudify.org/3.4.0/manager/bootstrapping/) the cloudify bootstrap documentation !
+For more explanation, [see](http://docs.getcloudify.org/3.4.0/manager/bootstrapping/) the cloudify bootstrap documentation!
 
 1. Log into `cloudify-cli` (the host where you installed the Cloudify CLI) and enter in the virtual environment with source command <br>
 
@@ -66,8 +64,7 @@ For more explanation, [see](http://docs.getcloudify.org/3.4.0/manager/bootstrapp
 
    ```shell
    cd cloudify
-   mkdir -p cloudify-manager
-   cd cloudify-manager
+   mkdir -p cloudify-manager && cd cloudify-manager
    ```
 1. Download manager blueprint version 3.4.0.2-telco <br>
 
@@ -77,11 +74,10 @@ For more explanation, [see](http://docs.getcloudify.org/3.4.0/manager/bootstrapp
 1. Prepare deployment on OpenStack Mitaka platform <br>
 
    ```shell
-   cfy init
-   cd cloudify-manager-blueprints/
+   cfy init && cd cloudify-manager-blueprints/
    vim openstack-manager-blueprint.yaml
    ```
-   Replace the default `cidr: 172.16.0.0/16` of `management_subnet` in `openstack-manager-blueprint.yaml` with <br>
+   Replace the default `cidr: 172.16.0.0/16` of `management_subnet` in `openstack-manager-blueprint.yaml` with
 
    ```
    cidr: 13.1.1.0/24
@@ -99,7 +95,7 @@ For more explanation, [see](http://docs.getcloudify.org/3.4.0/manager/bootstrapp
    cp openstack-manager-blueprint-inputs.yaml inputs.yaml
    vim inputs.yaml
    ```
-   Bellow is an example of `inputs.yaml` file configurations for OpenStack Mitaka. Cloudify Manager Server can be bootstrapped on either CentOS 7.x or RHEL 7.x. Here I use the image [CentOS-7-x86_64-GenericCloud.qcow2](https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2). <br>
+   Bellow is an example of `inputs.yaml` file configurations for OpenStack Mitaka. Cloudify Manager Server can be bootstrapped on either CentOS 7.x or RHEL 7.x. Here I use the image [CentOS-7-x86_64-GenericCloud.qcow2](https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2).
 
    ```
    keystone_username: 'admin'

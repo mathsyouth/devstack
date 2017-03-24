@@ -14,7 +14,7 @@ http://cloudinit.readthedocs.org/en/latest/topics/examples.html
 
 ## [Ubuntu 14.04](https://cloud-images.ubuntu.com/trusty/current/)
 
-1. Download the image <br>
+1. Download the image
 
    ```shell
    wget https://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img
