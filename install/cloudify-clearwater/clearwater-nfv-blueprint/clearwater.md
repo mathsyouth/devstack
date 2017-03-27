@@ -7,12 +7,12 @@ To deploy the Clearwater vIMS, you must have previously installed the **Cloudify
 
 ### Upload Clearwater blueprint
 
-1. Log into `cloudify-cli` (the host where you installed the Cloudify CLI) and enter in the virtual environment with source command <br>
+1. Log into `cloudify-cli` (the host where you installed the Cloudify CLI) and enter in the virtual environment with source command
 
    ```shell
    source  cloudify/bin/activate
    ```
-1. Download blueprint using git <br>
+1. Download blueprint using git
 
    ```shell
    cd ~/cloudify/cloudify-manager/
@@ -20,7 +20,7 @@ To deploy the Clearwater vIMS, you must have previously installed the **Cloudify
    cd blueprints
    git clone https://github.com/cloudify-examples/clearwater-nfv-blueprint.git
    ```
-1. Upload blueprint on the Cloudify orchestrator <br>
+1. Upload blueprint on the Cloudify orchestrator
 
    ```shell
    cd clearwater-nfv-blueprint
@@ -54,17 +54,17 @@ To deploy the Clearwater vIMS, you must have previously installed the **Cloudify
    region: 'RegionOne'
    ```
    You can also pass the parameters from the Cloud Manager Server GUI—Create Deployment using Blueprints.
-1. Once the input file is completed, you must create the deployment on orchestrator <br>
+1. Once the input file is completed, you must create the deployment on orchestrator
 
    ```
    cfy deployments create -b clearwater -d clearwater --inputs inputs/inputs.yaml
    ```
-1. Launch Clearwater deployment <br>
+1. Launch Clearwater deployment
 
    ```
    cfy executions start -w install -d clearwater --timeout=3600
    ```
-   If this result appears on console, installaton of your Clearwater is finished <br>
+   If this result appears on console, installaton of your Clearwater is finished
 
    ```
    2017-02-24T08:37:37 CFY <clearwater> 'install' workflow execution succeeded

@@ -16,7 +16,7 @@ Cloudify CLI can be used to create Cloudify Manager Server on OpenStack platform
 
 The following steps will guide you for installation of Cloudify CLI:
 
-1. Create Cloudify CLI VM (Ubuntu **14.04** image) named `cloudify-cli`.
+1. Create Cloudify CLI VM (Ubuntu **14.04** image) named `cloudify-cli`. You can run [this script](../../launch_vm.sh) to create a VM. You also could refer to [this doc](../../../README.md) to manually create a VM.
 1. Log into `cloudify-cli` and then install python packages
 
    ```shell
